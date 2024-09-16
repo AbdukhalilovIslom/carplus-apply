@@ -1,0 +1,32 @@
+.licence {
+  h2 {
+    text-align: center;
+  }
+  &__block {
+    display: flex;
+    column-gap: 2%;
+    margin: 40px 0;
+
+    &__item {
+      width: 49%;
+      text-align: center;
+      padding: 16px;
+      border-radius: 5px;
+      border: 1px solid #efeff2;
+      background-color: #efeff2;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-weight: 600;
+
+      &:hover {
+        color: #fff;
+        background-color: #52b25b;
+      }
+
+      &__active {
+        border-color: #52b25b;
+        background: #fff;
+      }
+    }
+  }
+}

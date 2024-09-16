@@ -1,0 +1,27 @@
+.applyBack {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+
+  &__block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 18px;
+    line-height: 28px;
+    color: #23408f;
+
+    span {
+      display: block;
+      transform: rotate(180deg);
+      width: fit-content;
+      fill: #23408f;
+    }
+  }
+
+  &__text {
+    color: #23408f;
+  }
+}

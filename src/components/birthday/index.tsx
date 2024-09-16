@@ -55,7 +55,6 @@ export default function Birthday() {
             maxDate={dayjs().subtract(18, "year")}
             minDate={dayjs().subtract(75, "year")}
             onChange={onChange}
-            onError={console.log}
             disableOpenPicker={true}
           />
         </LocalizationProvider>

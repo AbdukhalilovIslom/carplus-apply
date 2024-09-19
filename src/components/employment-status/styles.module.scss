@@ -1,0 +1,36 @@
+.emp_status {
+  h2 {
+    text-align: center;
+  }
+  &__block {
+    display: flex;
+    gap: 20px 2%;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+    flex-wrap: wrap;
+
+    &__item {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      padding: 16px;
+      border-radius: 5px;
+      border: 1px solid #efeff2;
+      background-color: #efeff2;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-weight: 600;
+
+      &:hover {
+        color: #fff;
+        background-color: #52b25b;
+      }
+
+      &__active {
+        border-color: #52b25b;
+        background: #fff;
+      }
+    }
+  }
+}

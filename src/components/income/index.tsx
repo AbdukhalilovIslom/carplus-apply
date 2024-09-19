@@ -11,11 +11,11 @@ export default function Income() {
   const incomeOptions = [
     {
       title: "Under £1,500",
-      value: 1500,
+      value: 2001,
     },
     {
       title: "£1,500 - £2,000",
-      value: 2000,
+      value: 2001,
     },
     {
       title: "£2,000 - £3,000",

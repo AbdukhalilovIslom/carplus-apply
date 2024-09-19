@@ -1,0 +1,68 @@
+.job {
+  h2 {
+    text-align: center;
+  }
+
+  &__block {
+    margin: 40px 0;
+
+    p {
+      color: #f00;
+      font-size: 14px;
+    }
+
+    &__inputs2 {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      &__item {
+        width: 48%;
+        padding: 16px;
+        font-size: 16px;
+        line-height: 28px;
+        border: 1px solid #6c757d;
+        border-radius: 5px;
+
+        &:focus {
+          border-color: #52b25b;
+        }
+      }
+    }
+    &__inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      &__item {
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+        line-height: 28px;
+        border: 1px solid #6c757d;
+        border-radius: 5px;
+
+        &:focus {
+          border-color: #52b25b;
+        }
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+    padding: 16px 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 6px;
+    fill: #fff;
+    background: #52b25b;
+    border: none;
+    font-size: 16px;
+  }
+}

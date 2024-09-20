@@ -40,7 +40,6 @@ export default function Home() {
         return <EmailAndPhone />;
     }
   };
-  console.log(data);
 
   return (
     <div className={styles.home}>

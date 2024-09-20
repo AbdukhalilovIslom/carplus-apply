@@ -78,7 +78,8 @@ export default function EmailAndPhone() {
         sessionStorage.setItem("user_email", finalResult.user.email);
         sessionStorage.setItem("user_phone", finalResult.user.phone);
         // sessionStorage.setItem("id", res.data.id);
-        window.location.assign("/apply/success/");
+        window.parent.location.href =
+          "https://carfinancemax.com/apply/success/";
       })
       .catch(function (error) {
         console.log(error);

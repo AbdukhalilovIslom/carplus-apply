@@ -1,7 +1,7 @@
 .home {
   max-width: 728px;
   margin: 0 auto;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 
   .progress {
     position: relative;

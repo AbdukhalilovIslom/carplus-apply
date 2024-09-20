@@ -27,7 +27,7 @@ export default function EmailAndPhone() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-
+    setIsLoading(true);
     const updatedAddresses = data.addresses.map((item) => {
       const { addressText, live_months, live_years, livingStatus, ...rest } =
         item;
@@ -76,12 +76,13 @@ export default function EmailAndPhone() {
 
     apply(finalResult)
       .then(function (response) {
-        console.log(response);
-        sessionStorage.setItem("user_name", finalResult.user.first_name);
-        sessionStorage.setItem("user_email", finalResult.user.email);
-        sessionStorage.setItem("user_phone", finalResult.user.phone);
-        // sessionStorage.setItem("id", res.data.id);
-        router.push("/success");
+        if (response.success) {
+          sessionStorage.setItem("user_name", finalResult.user.first_name);
+          sessionStorage.setItem("user_email", finalResult.user.email);
+          sessionStorage.setItem("user_phone", finalResult.user.phone);
+          // sessionStorage.setItem("id", res.data.id);
+          router.push("/success");
+        }
       })
       .catch(function (error) {
         console.log(error);

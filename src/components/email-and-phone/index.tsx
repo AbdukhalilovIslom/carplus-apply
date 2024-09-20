@@ -1,3 +1,4 @@
+"use client";
 import { useStore } from "@/store";
 import styles from "./styles.module.scss";
 import Link from "next/link";
@@ -5,7 +6,7 @@ import ApplyBack from "../applyBack";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { apply } from "@/services/apply";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function EmailAndPhone() {
   const router = useRouter();

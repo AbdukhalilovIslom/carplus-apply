@@ -80,7 +80,7 @@ const initialValues = {
     },
     addresses: [],
     api_key: "",
-    page: 1,
+    page: 5,
   },
   tab: "postcode",
 } satisfies States;

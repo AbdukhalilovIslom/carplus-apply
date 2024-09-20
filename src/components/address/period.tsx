@@ -22,8 +22,6 @@ export default function Period({
     months: "",
   });
 
-  console.log(data);
-
   const validateInput = (value: string, key: string) => {
     let error = "";
     const valueNumber = Number(value);
@@ -69,6 +67,10 @@ export default function Period({
         page: 6,
       });
     } else {
+      setData({
+        ...data,
+        addresses: newAddresses,
+      });
       setTab("postcode");
       setPeriod({ years: "", months: "" });
     }
@@ -79,6 +81,9 @@ export default function Period({
     addresses.forEach((address) => {
       period += Number(address.live_years) * 12 + Number(address.live_months);
     });
+
+    console.log(period);
+
     return period >= 36;
   };
 

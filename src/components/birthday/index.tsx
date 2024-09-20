@@ -35,7 +35,6 @@ export default function Birthday() {
     }
 
     const birth_date = value.split("/").join("-");
-    console.log(birth_date);
 
     setData({
       ...data,

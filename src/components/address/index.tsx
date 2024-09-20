@@ -41,6 +41,7 @@ export default function Address() {
     live_months: "",
     live_years: "",
   });
+  console.log(address);
 
   switch (tab) {
     case "postcode":

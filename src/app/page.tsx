@@ -11,8 +11,10 @@ import Username from "@/components/username";
 import EmailAndPhone from "@/components/email-and-phone";
 
 import styles from "./page.module.css";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [d, setD] = useState();
   const data = useStore((store) => store.data);
   const { page } = data;
   const PAGES_COUNT = 9;
@@ -41,11 +43,34 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    const handleMessage = (event: any) => {
+      // Validate the origin to ensure security
+      if (event.origin !== "http://192.168.0.103:3000/") {
+        return;
+      }
+
+      const { key } = event.data;
+      setD(key);
+      console.log("Received key:", key);
+      // Now you can use this `key` in your iframe app
+    };
+
+    // Add the event listener to listen for messages
+    window.addEventListener("message", handleMessage);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
+
   return (
     <div className={styles.home}>
       <div className={styles.progress}>
         <div className={styles.bar} style={{ width: `${progress}%` }}></div>
       </div>
+      <h1>key: {d}</h1>
       {getApplyPage()}
     </div>
   );

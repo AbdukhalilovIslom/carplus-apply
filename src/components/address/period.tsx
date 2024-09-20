@@ -82,8 +82,6 @@ export default function Period({
       period += Number(address.live_years) * 12 + Number(address.live_months);
     });
 
-    console.log(period);
-
     return period >= 36;
   };
 

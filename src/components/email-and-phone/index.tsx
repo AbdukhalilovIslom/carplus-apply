@@ -5,8 +5,10 @@ import ApplyBack from "../applyBack";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { apply } from "@/services/apply";
+import { useRouter } from "next/router";
 
 export default function EmailAndPhone() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
   const api_key = (searchParams.get("key") ||
@@ -78,9 +80,7 @@ export default function EmailAndPhone() {
         sessionStorage.setItem("user_email", finalResult.user.email);
         sessionStorage.setItem("user_phone", finalResult.user.phone);
         // sessionStorage.setItem("id", res.data.id);
-        window.parent.postMessage("success", "*");
-        window.parent.location.href =
-          "https://carfinancemax.com/apply/success/";
+        router.push("/success");
       })
       .catch(function (error) {
         console.log(error);

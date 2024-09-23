@@ -17,7 +17,7 @@ export default function Home() {
   const data = useStore((store) => store.data);
   const { page } = data;
   const PAGES_COUNT = 9;
-  const progress = (100 / PAGES_COUNT) * page - 100 / PAGES_COUNT;
+  const progress = (100 / PAGES_COUNT) * page - 100 / PAGES_COUNT + 10;
 
   const getApplyPage = () => {
     switch (page) {

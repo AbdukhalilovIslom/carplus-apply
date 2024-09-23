@@ -10,6 +10,7 @@
     border-radius: 12px;
     background-color: #dfe0dc;
     overflow: hidden;
+    margin-bottom: 20px;
 
     .bar {
       position: absolute;
@@ -23,6 +24,7 @@
   }
   .trust {
     padding: 20px 0;
+    margin-bottom: 15px;
 
     @media (min-width: 768px) {
       padding: 40px 0;

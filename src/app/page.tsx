@@ -11,6 +11,7 @@ import Username from "@/components/username";
 import EmailAndPhone from "@/components/email-and-phone";
 
 import styles from "./page.module.css";
+import TrustPilotLine from "@/components/trustPilotLine";
 
 export default function Home() {
   const data = useStore((store) => store.data);
@@ -45,6 +46,9 @@ export default function Home() {
     <div className={styles.home}>
       <div className={styles.progress}>
         <div className={styles.bar} style={{ width: `${progress}%` }}></div>
+      </div>
+      <div className={styles.trust}>
+        <TrustPilotLine />
       </div>
       {getApplyPage()}
     </div>

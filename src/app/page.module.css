@@ -10,7 +10,6 @@
     border-radius: 12px;
     background-color: #dfe0dc;
     overflow: hidden;
-    margin-bottom: 40px;
 
     .bar {
       position: absolute;
@@ -20,6 +19,13 @@
       background: #07d792;
       transition: all 0.3s ease;
       border-radius: 12px;
+    }
+  }
+  .trust {
+    padding: 20px 0;
+
+    @media (min-width: 768px) {
+      padding: 40px 0;
     }
   }
 }

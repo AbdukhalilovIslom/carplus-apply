@@ -1,0 +1,31 @@
+.trustPL {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #000;
+
+  &__image {
+    width: auto;
+    height: 12px;
+    object-fit: contain;
+  }
+
+  @media (min-width: 550px) {
+    gap: 20px;
+
+    &__image {
+      height: 20px;
+    }
+  }
+
+  &__block {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__text {
+    font-size: 10px;
+    font-weight: 600;
+  }
+}

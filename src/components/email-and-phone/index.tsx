@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import Link from "next/link";
 import ApplyBack from "../applyBack";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { apply } from "@/services/apply";
 import { useRouter } from "next/navigation";
 
@@ -24,6 +24,15 @@ export default function EmailAndPhone() {
 
   const data = useStore((store) => store.data);
   const setData = useStore((store) => store.setData);
+
+  const sendMessageToParent = () => {
+    window.parent.postMessage(
+      { type: "MESSAGE_FROM_IFRAME", payload: "Hello from the iframe!" },
+      "http://localhost:3000" // Ensure correct origin
+    );
+  };
+
+  console.log(localStorage.getItem("key"));
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -77,11 +86,12 @@ export default function EmailAndPhone() {
     apply(finalResult)
       .then(function (response) {
         if (response.success) {
-          sessionStorage.setItem("user_name", finalResult.user.first_name);
-          sessionStorage.setItem("user_email", finalResult.user.email);
-          sessionStorage.setItem("user_phone", finalResult.user.phone);
+          // sessionStorage.setItem("user_name", finalResult.user.first_name);
+          // sessionStorage.setItem("user_email", finalResult.user.email);
+          // sessionStorage.setItem("user_phone", finalResult.user.phone);
           // sessionStorage.setItem("id", res.data.id);
           router.push("/success");
+          sendMessageToParent();
         }
       })
       .catch(function (error) {

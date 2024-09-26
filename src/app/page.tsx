@@ -12,7 +12,7 @@ import EmailAndPhone from "@/components/email-and-phone";
 
 import styles from "./page.module.css";
 import TrustPilotLine from "@/components/trustPilotLine";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const data = useStore((store) => store.data);
@@ -43,25 +43,7 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    const handleMessage = (event: any) => {
-      if (event.origin !== "http://localhost:3000") return; // Ensure origin validation
-
-      console.log("Message received from parent:", event.data);
-
-      // Responding back to the parent window
-      event.source.postMessage(
-        { type: "MESSAGE_FROM_IFRAME", payload: "Hello from the iframe!" },
-        event.origin
-      );
-    };
-
-    window.addEventListener("message", handleMessage);
-
-    return () => {
-      window.removeEventListener("message", handleMessage);
-    };
-  }, []);
+  console.log(sessionStorage.getItem("asd"));
 
   return (
     <div className={styles.home}>
@@ -71,6 +53,7 @@ export default function Home() {
       <div className={styles.trust}>
         <TrustPilotLine />
       </div>
+
       {getApplyPage()}
     </div>
   );

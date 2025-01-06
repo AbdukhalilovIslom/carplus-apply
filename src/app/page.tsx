@@ -12,7 +12,6 @@ import EmailAndPhone from "@/components/email-and-phone";
 
 import styles from "./page.module.css";
 import TrustPilotLine from "@/components/trustPilotLine";
-import { useEffect, useState } from "react";
 
 export default function Home() {
   const data = useStore((store) => store.data);
@@ -51,7 +50,6 @@ export default function Home() {
       <div className={styles.trust}>
         <TrustPilotLine />
       </div>
-
       {getApplyPage()}
     </div>
   );

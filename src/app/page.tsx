@@ -43,8 +43,6 @@ export default function Home() {
     }
   };
 
-  console.log(sessionStorage.getItem("asd"));
-
   return (
     <div className={styles.home}>
       <div className={styles.progress}>

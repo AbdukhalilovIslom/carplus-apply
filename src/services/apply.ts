@@ -42,7 +42,7 @@ interface ApplyBody {
 
 export async function apply(data: ApplyBody) {
   const res = await axios.post<any>(
-    `https://api2.carplus.co.uk/requests/new`,
+    `https://api.carplus.co.uk/requests/new`,
     data
   );
   return res.data;

@@ -31,7 +31,7 @@ export default function Postcode({
     }
     (async () => {
       const res = await fetch(
-        `https://api.carplus.co.uk/postcodes/v2/${searchText}`
+        `https://api2.carplus.co.uk/api/postcodes/v2/${searchText}`
       );
 
       if (res.ok) {
@@ -53,7 +53,7 @@ export default function Postcode({
   return (
     <div className={styles.postcode}>
       <h2>
-        {data.addresses.length
+        {data.addresses?.length
           ? "And what was your previous address?"
           : "Next, where do you live?"}
       </h2>
@@ -80,7 +80,7 @@ export default function Postcode({
           </p>
         ) : null}
 
-        {postAddresses?.addresses.length ? (
+        {postAddresses?.addresses?.length ? (
           <div className={styles.postcode__block__addresses}>
             {postAddresses.addresses.map((item, index) => (
               <div

@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import Link from "next/link";
 import ApplyBack from "../applyBack";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { apply } from "@/services/apply";
 import { useRouter } from "next/navigation";
 
@@ -12,15 +12,7 @@ export default function EmailAndPhone() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
-  const api_key = (searchParams.get("key") ||
-    "default") as keyof typeof api_keys;
-  const api_keys = {
-    max: "Carfinancemax",
-    carplus: "Carplus2",
-    money: "Carfinance",
-    carboom: "Carboom",
-    default: "Carfinancemax",
-  };
+  const api_key = searchParams.get("key") || "Carfinancemax";
 
   const data = useStore((store) => store.data);
   const setData = useStore((store) => store.setData);
@@ -31,8 +23,6 @@ export default function EmailAndPhone() {
       "http://localhost:3000" // Ensure correct origin
     );
   };
-
-  console.log(localStorage.getItem("key"));
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -74,7 +64,7 @@ export default function EmailAndPhone() {
         },
       ],
       addresses: updatedAddresses,
-      api_key: api_keys[api_key],
+      api_key: api_key,
       gclid: sessionStorage.getItem("gclid")
         ? sessionStorage.getItem("gclid")
         : "",
@@ -86,10 +76,10 @@ export default function EmailAndPhone() {
     apply(finalResult)
       .then(function (response) {
         if (response.success) {
-          // sessionStorage.setItem("user_name", finalResult.user.first_name);
-          // sessionStorage.setItem("user_email", finalResult.user.email);
-          // sessionStorage.setItem("user_phone", finalResult.user.phone);
-          // sessionStorage.setItem("id", res.data.id);
+          sessionStorage.setItem("user_name", finalResult.user.first_name);
+          sessionStorage.setItem("user_email", finalResult.user.email);
+          sessionStorage.setItem("user_phone", finalResult.user.phone);
+
           router.push("/success");
           sendMessageToParent();
         }
